@@ -1,47 +1,31 @@
-# encoding: utf-8
-
-require 'rubygems'
-require 'bundler'
+#!/usr/bin/env rake
 begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
-require 'rake'
 
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  gem.name = "thorax"
-  gem.homepage = "http://github.com/walmartlabs/thorax-gem"
-  gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "eastridgele@gmail.com"
-  gem.authors = ["Lauren Eastridge"]
-  # dependencies defined in Gemfile
+require 'bundler/gem_tasks'
+require 'rdoc/task'
+
+RDoc::Task.new(:rdoc) do |rdoc|
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title    = 'BackboneRails'
+  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.rdoc_files.include('README.md')
+  rdoc.rdoc_files.include('lib/**/*.rb')
 end
-Jeweler::RubygemsDotOrgTasks.new
 
 require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
+
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'lib'
+  t.libs << 'test'
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = false
 end
 
 task :default => :test
-
-require 'rdoc/task'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "thorax #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
 
 namespace :thorax do
   desc "Download the latest releases of backbone, underscore, handlebars, and thorax"
