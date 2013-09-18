@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.summary = "Use thorax.js with rails"
   s.description = "Add Thorax to the Rails asset pipeline.  Generators take care of boilerplate code so you don't have to"
-  s.files = Dir["lib/**/*"] + Dir["vendor/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["lib/**/*"] + Dir["vendor/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
 
   s.add_dependency('railties', '>= 3.1.0')
   s.add_dependency('coffee-script', '~> 2.2.0')
