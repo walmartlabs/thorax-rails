@@ -1,11 +1,11 @@
 # Provide a simple gemspec so you can easily use your
 # project in your rails apps through git.
 Gem::Specification.new do |s|
-  s.name = "thorax"
-  s.version = "0.0.0"
+  s.name = "thorax-rails"
+  s.version = "0.0.1.2"
   s.authors     = ["Lauren Eastridge", "Formidable Labs", "Walmart Labs"]
   s.email       = ["ryan@codebrewstudios.com"]
-  s.homepage    = "http://github.com/walmartlabs/backbone-rails"
+  s.homepage    = "http://github.com/walmartlabs/thorax-gem"
 
   s.summary = "Use thorax.js with rails"
   s.description = "Add Thorax to the Rails asset pipeline.  Generators take care of boilerplate code so you don't have to"
@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.add_dependency('coffee-script', '~> 2.2.0')
   s.add_dependency('jquery-rails', '~> 2.1.3')
   s.add_dependency('ejs', '~> 1.1.1')
+  s.add_dependency('handlebars_assets')
 
   s.add_development_dependency('rails', '~> 3.2.0')
   s.add_development_dependency('sqlite3')

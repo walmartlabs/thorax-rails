@@ -2,6 +2,10 @@
 
 The thorax gem includes Thorax.js in your Rails asset pipeline.  A few handy generators take care the boilerplate code so you don't have to.  Enjoy!
 
+== IN DEVELOPMENT
+
+this gem is not ready for use in the wild!
+
 == Contributing to thorax
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
