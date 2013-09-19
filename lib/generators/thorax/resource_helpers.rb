@@ -1,6 +1,6 @@
 module Thorax
   module Generators
-    module ThoraxHelpers
+    module ResourceHelpers
 
       def thorax_path
         "app/assets/javascripts/thorax"

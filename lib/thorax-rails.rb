@@ -1,6 +1,6 @@
 require 'rails'
 
-module Thorax
+module ThoraxRails
   class Engine < Rails::Engine
   end
 end

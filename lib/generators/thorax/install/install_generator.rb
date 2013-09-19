@@ -1,9 +1,9 @@
-require 'generators/thorax/thorax_helpers'
+require 'generators/thorax/resource_helpers'
 
 module Thorax
   module Generators
     class InstallGenerator < Rails::Generators::Base
-      include Thorax::Generators::ThoraxHelpers
+      include Thorax::Generators::ResourceHelpers
 
       source_root File.expand_path("../templates", __FILE__)
 
