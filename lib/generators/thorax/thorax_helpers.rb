@@ -30,8 +30,8 @@ module Thorax
         [js_app_name, "Routers", plural_name.camelize].join(".")
       end
 
-      def jst(action)
-        "backbone/templates/#{plural_name}/#{action}"
+      def hbs(action)
+        "thorax/templates/#{plural_name}/#{action}"
       end
 
       def js_app_name
