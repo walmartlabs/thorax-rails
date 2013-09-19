@@ -10,7 +10,7 @@ require 'rdoc/task'
 
 RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'BackboneRails'
+  rdoc.title    = 'ThoraxRails'
   rdoc.options << '--line-numbers' << '--inline-source'
   rdoc.rdoc_files.include('README.md')
   rdoc.rdoc_files.include('lib/**/*.rb')
@@ -36,7 +36,7 @@ namespace :thorax do
       'handlebars.js' => 'https://raw.github.com/wycats/handlebars.js/master/lib/handlebars.js',
       'thorax.js' => 'https://github.com/components/thorax/blob/master/thorax.js'
     }
-    vendor_dir = "vendor/assets/javascripts/thorax"
+    vendor_dir = "vendor/assets/javascripts"
 
     require 'open-uri'
     files.each do |local, remote|
