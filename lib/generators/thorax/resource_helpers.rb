@@ -3,7 +3,7 @@ module Thorax
     module ResourceHelpers
 
       def thorax_path
-        "app/assets/javascripts/thorax"
+        "app/assets/javascripts"
       end
 
       def model_namespace

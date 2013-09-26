@@ -54,6 +54,7 @@ initialize();"
         template "layout-view.coffee", "app/assets/javascripts/layout-view.js.coffee"
         template "model.coffee", "app/assets/javascripts/model.js.coffee"
         template "view.coffee", "app/assets/javascripts/view.js.coffee"
+        template "root.coffee", "app/assets/javascripts/views/root.js.coffee"
         template "root.hbs", "app/assets/templates/root.hbs"
       end
     end

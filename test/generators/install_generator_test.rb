@@ -67,6 +67,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     assert_file "#{thorax_path}/layout-view.js.coffee"
     assert_file "#{thorax_path}/model.js.coffee"
     assert_file "#{thorax_path}/view.js.coffee"
+    assert_file "#{thorax_path}/views/root.js.coffee"
     assert_file "#{template_path}/root.hbs"
   end
 
