@@ -1,4 +1,4 @@
-module GeneratorTestHelper
+module GeneratorsTestHelper
   def self.included(base)
     base.class_eval do
       destination File.expand_path("../tmp", File.dirname(__FILE__))
@@ -7,7 +7,11 @@ module GeneratorTestHelper
   end
 
   def thorax_path
-    "app/assets/javascripts/thorax"
+    "app/assets/javascripts"
+  end
+
+  def template_path
+    "app/assets/templates"
   end
 
 end
