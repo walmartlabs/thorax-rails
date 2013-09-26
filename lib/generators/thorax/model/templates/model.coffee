@@ -1,5 +1,6 @@
-class <%= model_namespace %> extends Thorax.Model
-  paramRoot: '<%= singular_table_name %>'
+<%=model_namespace%>Model = Model.extend
+  name: '<%= singular_table_name %>'
+  urlRoot: '/<%= plural_table_name %>'
 
   defaults:
 <% attributes.each do |attribute| -%>
