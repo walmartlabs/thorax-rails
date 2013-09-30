@@ -6,6 +6,10 @@ module Thorax
         "app/assets/javascripts"
       end
 
+      def template_path
+        "app/assets/templates"
+      end
+
       def model_namespace
         class_name.camelize
       end
@@ -23,11 +27,11 @@ module Thorax
       end
 
       def view_namespace
-        [js_app_name, "View", plural_name.camelize].join(".")
+        plural_name.camelize
       end
 
       def router_namespace
-        [js_app_name, "Router", plural_name.camelize].join(".")
+        plural_name.camelize
       end
 
       def hbs(action)

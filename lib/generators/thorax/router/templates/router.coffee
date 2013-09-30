@@ -1,5 +1,7 @@
-class <%= router_namespace %>Router extends Thorax.Router
+class <%= router_namespace %>Router extends Backbone.Router
   initialize: (options) ->
+    @<%=plural_name%> = new <%=collection_namespace%>Collection()
+    @<%=plural_name%>.reset options.<%=plural_name%>
 
   routes:
   <% actions.each do |action| -%>
@@ -8,7 +10,6 @@ class <%= router_namespace %>Router extends Thorax.Router
 
 <% actions.each do |action| -%>
   <%= action %>: ->
-    @view = new <%= "#{view_namespace}.#{action.camelize}View()" %>
-    $("#<%= plural_name %>").html(@view.render().el)
-
+    view = new <%= "#{view_namespace}#{action.camelize}View()" %>
+    RootView.getInstance().setView view
 <% end -%>
