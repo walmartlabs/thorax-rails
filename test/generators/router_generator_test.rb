@@ -9,7 +9,7 @@ class RouterGeneratorTest < Rails::Generators::TestCase
   test "simple router with two actions" do
     run_generator ["Posts", "index", "edit"]
 
-    assert_file "#{thorax_path}/routers/posts_router.js.coffee" do |router|
+    assert_file "#{thorax_path}/routers/posts.js.coffee" do |router|
       assert_match /class PostsRouter extends Backbone.Router/, router
     end
 
@@ -22,7 +22,7 @@ class RouterGeneratorTest < Rails::Generators::TestCase
   test "camelize router names containing two words" do
     run_generator ["BlogPosts", "index", "edit"]
 
-    assert_file "#{thorax_path}/routers/blog_posts_router.js.coffee" do |router|
+    assert_file "#{thorax_path}/routers/blog_posts.js.coffee" do |router|
       assert_match /class BlogPostsRouter extends Backbone.Router/, router
     end
 

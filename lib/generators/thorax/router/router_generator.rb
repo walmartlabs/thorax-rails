@@ -25,7 +25,7 @@ module Thorax
       end
 
       def create_router_files
-        template 'router.coffee', File.join(thorax_path, "routers", class_path, "#{file_name}_router.js.coffee")
+        template 'router.coffee', File.join(thorax_path, "routers", class_path, "#{file_name}.js.coffee")
       end
 
       def create_view_files
