@@ -1,4 +1,4 @@
-RootView = LayoutView.extend
+class RootView extends LayoutView
   name: "root"
   template: HandlebarsTemplates["root"]
 
