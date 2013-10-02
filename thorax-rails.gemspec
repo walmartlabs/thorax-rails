@@ -2,11 +2,10 @@
 # project in your rails apps through git.
 Gem::Specification.new do |s|
   s.name = "thorax-rails"
-  s.version = "0.0.1.18"
+  s.version = "0.0.1.27"
   s.authors = ["Lauren Eastridge", "Formidable Labs", "Walmart Labs"]
   s.email = ["lauren.eastridge@formidablelabs.com"]
   s.homepage = "http://github.com/walmartlabs/thorax-gem"
-  s.license = "MIT"
 
   s.summary = "Use thorax.js with rails"
   s.description = "Add Thorax to the Rails asset pipeline.  Generators take care of boilerplate code so you don't have to"
