@@ -1,6 +1,6 @@
 <%= view_namespace %> ||= {}
 
-class <%= view_namespace %>.IndexView extends Thorax.View
+class <%= view_namespace %>.IndexView extends View
   template: Handlebars.templates["<%= hbs 'index' %>"]
 
   initialize: () ->

@@ -1,6 +1,6 @@
 <%= view_namespace %> ||= {}
 
-class <%= view_namespace %>.ShowView extends Thorax.View
+class <%= view_namespace %>.ShowView extends View
   template: Handlebars.templates["<%= hbs 'show' %>"]
 
   render: ->

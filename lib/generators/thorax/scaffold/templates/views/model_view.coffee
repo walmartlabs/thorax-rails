@@ -1,6 +1,6 @@
 <%= view_namespace %> ||= {}
 
-class <%= view_namespace %>.<%= singular_name.camelize %>View extends Thorax.View
+class <%= view_namespace %>.<%= singular_name.camelize %>View extends View
   template: Handlebars.templates["<%= hbs singular_name %>"]
 
   events:

@@ -1,7 +1,7 @@
 <%= view_namespace %> ||= {}
 
-class <%= view_namespace %>.NewView extends Thorax.View
-  template: Handlebars.templates["<%= hbs 'new' %>"]
+class <%= view_namespace %>.CreateView extends View
+  template: Handlebars.templates["<%= hbs 'create' %>"]
 
   events:
     "submit #new-<%= singular_name %>": "save"
@@ -10,9 +10,8 @@ class <%= view_namespace %>.NewView extends Thorax.View
     super(options)
     @model = new @collection.model()
 
-    @model.bind("change:errors", () =>
-      this.render()
-    )
+    @model.bind "change:errors", =>
+      @render()
 
   save: (e) ->
     e.preventDefault()

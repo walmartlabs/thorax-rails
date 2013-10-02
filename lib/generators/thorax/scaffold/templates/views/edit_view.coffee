@@ -1,6 +1,6 @@
 <%= view_namespace %> ||= {}
 
-class <%= view_namespace %>.EditView extends Thorax.View
+class <%= view_namespace %>.EditView extends View
   template: Handlebars.templates["<%= hbs 'edit' %>"]
 
   events:
