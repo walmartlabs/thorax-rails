@@ -1,4 +1,4 @@
-class RootView extends LayoutView
+class RootView extends <%= js_app_name %>.LayoutView
   name: "root"
   template: HandlebarsTemplates["root"]
 

@@ -11,7 +11,7 @@ module Thorax
       end
 
       def model_namespace
-        class_name.camelize
+        [js_app_name, class_name].join(".")
       end
 
       def singular_model_name
@@ -23,15 +23,15 @@ module Thorax
       end
 
       def collection_namespace
-        plural_name.camelize
+        [js_app_name, plural_name.camelize].join(".")
       end
 
       def view_namespace
-        plural_name.camelize
+        [js_app_name, plural_name.camelize].join(".")
       end
 
       def router_namespace
-        plural_name.camelize
+        [js_app_name, plural_name.camelize].join(".")
       end
 
       def hbs(action)

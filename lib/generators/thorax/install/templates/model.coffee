@@ -1,3 +1,4 @@
-# This is your application model class.
-# Model behaviors defined here will be inherited by all application models.
-class Model extends Thorax.Model
+window.<%= js_app_name %> =
+  Models: {}
+
+class window.<%= js_app_name %>.Model extends Thorax.Model

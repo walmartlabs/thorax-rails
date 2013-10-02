@@ -1,3 +1,4 @@
-# This is your application view class.
-# View behaviors defined here will be inherited by all application views
-class View extends Thorax.View
+window.<%= js_app_name %> =
+  Views: {}
+
+class window.<%= js_app_name %>.View extends Thorax.View

@@ -1,3 +1,4 @@
-# This is your application layout class.
-# Layout behaviors defined here will be inherited by your layouts
-class LayoutView extends Thorax.LayoutView
+window.<%= js_app_name %> =
+  LayoutViews: {}
+
+class window.<%= js_app_name %>.LayoutView extends Thorax.LayoutView

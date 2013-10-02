@@ -1,4 +1,4 @@
-class <%=model_namespace%>Model extends Model
+class <%=model_namespace%>Model extends <%= js_app_name %>.Model
   name: '<%= singular_table_name %>'
   urlRoot: '/<%= plural_table_name %>'
 
