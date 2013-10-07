@@ -14,9 +14,19 @@ module Thorax
 
       def inject_thorax
         inject_into_file "app/assets/javascripts/application.js", :before => "//= require_tree" do
-          "//= require underscore\n//= require backbone\n//= require handlebars\n//= require thorax\n//= require root\n//= require view\n//= require collection-view\n//= require layout-view\n//= require model\n//= require collection\n//= require_tree ../templates\n//= require_tree ./models\n//= require_tree ./collections\n//= require_tree ./views\n//= require_tree ./routers\n"
+          "//= require underscore\n//= require backbone\n//= require handlebars.runtime\n//= require thorax\n//= require root\n//= require view\n//= require collection-view\n//= require layout-view\n//= require model\n//= require collection\n//= require_tree ../templates\n//= require_tree ./models\n//= require_tree ./collections\n//= require_tree ./views\n//= require_tree ./routers\n"
         end
         append_file "app/assets/javascripts/application.js", "function initialize(complete) {
+  // Configure Backbone to talk with Rails
+  Backbone.ajax = function() {
+    Backbone.$.ajaxSetup.call(Backbone.$, {
+      beforeSend: function(jqXHR){
+        var token = $('meta[name="csrf-token"]').attr('content');
+        jqXHR.setRequestHeader("X-CSRF-Token", token);
+      }
+    });
+    return Backbone.$.ajax.apply(Backbone.$, arguments);
+  };
   $(function() {
     Backbone.history.start({
       pushState: false,
@@ -56,6 +66,7 @@ initialize();"
         template "view.coffee", "app/assets/javascripts/view.js.coffee"
         template "root.coffee", "app/assets/javascripts/views/root.js.coffee"
         template "root.hbs", "app/assets/templates/root.hbs"
+        template "namespace.coffee", "app/assets/javascripts/#{application_name.underscore}.js.coffee"
       end
     end
   end

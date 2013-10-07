@@ -1,7 +1,9 @@
 class <%= router_namespace %>Router extends Backbone.Router
   initialize: (options) ->
-    @<%=plural_name%> = new <%=collection_namespace%>Collection()
-    @<%=plural_name%>.reset options.<%=plural_name%>
+    @<%=plural_name%> = new <%=collection_namespace%>Collection.getInstance()
+    if !@<%=plural_name%>._fetched
+      @<%=plural_name%>.fetch()
+      @<%=plural_name%>._fetched = true
 
   routes:
   <% actions.each do |action| -%>
@@ -11,5 +13,5 @@ class <%= router_namespace %>Router extends Backbone.Router
 <% actions.each do |action| -%>
   <%= action %>: ->
     view = new <%= "#{view_namespace}#{action.camelize}View()" %>
-    RootView.getInstance().setView view
+    <%= js_app_name %>RootView.getInstance().setView view
 <% end -%>
