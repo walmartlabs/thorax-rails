@@ -7,7 +7,7 @@ module Thorax
       end
 
       def template_path
-        "app/assets/templates"
+        "app/assets/javascripts/templates"
       end
 
       def model_namespace
@@ -35,7 +35,7 @@ module Thorax
       end
 
       def hbs(action)
-        "templates/#{plural_name}/#{action}"
+        "#{plural_name}/#{action}"
       end
 
       def js_app_name

@@ -31,7 +31,7 @@ module Thorax
       def create_view_files
          actions.each do |action|
            @action = action
-           @view_path = File.join(thorax_path, "views", plural_name, "#{@action}_view.js.coffee")
+           @view_path = File.join(thorax_path, "views", plural_name, "#{@action}.js.coffee")
            @hbs_path = File.join(template_path, plural_name, "#{@action}.hbs")
 
            template "view.coffee", @view_path

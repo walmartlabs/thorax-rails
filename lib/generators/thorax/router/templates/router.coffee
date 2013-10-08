@@ -13,5 +13,8 @@ class <%= router_namespace %>Router extends Backbone.Router
 <% actions.each do |action| -%>
   <%= action %>: ->
     view = new <%= "#{view_namespace}#{action.camelize}View()" %>
-    <%= js_app_name %>RootView.getInstance().setView view
+    <%= js_app_name %>.RootView.getInstance().setView view
 <% end -%>
+
+# Activate the router!
+new <%= router_namespace %>Router

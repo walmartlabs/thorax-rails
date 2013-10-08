@@ -12,41 +12,11 @@ module Thorax
       class_option :skip_git, :type => :boolean, :aliases => "-G", :default => false,
                               :desc => "Skip Git ignores and keeps"
 
+
       def inject_thorax
         inject_into_file "app/assets/javascripts/application.js", :before => "//= require_tree" do
-          "//= require underscore\n//= require backbone\n//= require handlebars.runtime\n//= require thorax\n//= require root\n//= require view\n//= require collection-view\n//= require layout-view\n//= require model\n//= require collection\n//= require_tree ../templates\n//= require_tree ./models\n//= require_tree ./collections\n//= require_tree ./views\n//= require_tree ./routers\n"
+          "//= require underscore\n//= require backbone\n//= require handlebars.runtime\n//= require thorax\n//= require root\n//= require view\n//= require collection-view\n//= require layout-view\n//= require model\n//= require collection\n//= require_tree ./templates\n//= require_tree ./models\n//= require_tree ./collections\n//= require_tree ./views\n//= require_tree ./routers\n"
         end
-        append_file "app/assets/javascripts/application.js", "function initialize(complete) {
-  // Configure Backbone to talk with Rails
-  Backbone.ajax = function() {
-    Backbone.$.ajaxSetup.call(Backbone.$, {
-      beforeSend: function(jqXHR){
-        var token = $('meta[name="csrf-token"]').attr('content');
-        jqXHR.setRequestHeader("X-CSRF-Token", token);
-      }
-    });
-    return Backbone.$.ajax.apply(Backbone.$, arguments);
-  };
-  $(function() {
-    Backbone.history.start({
-      pushState: false,
-      root: '/',
-      silent: true
-    });
-
-    // RootView may use link or url helpers which
-    // depend on Backbone history being setup
-    // so need to wait to loadUrl() (which will)
-    // actually execute the route
-    RootView.getInstance(document.body);
-
-    complete(function() {
-      Backbone.history.loadUrl();
-    });
-  });
-}
-
-initialize();"
       end
 
       def create_dir_layout
@@ -54,7 +24,7 @@ initialize();"
           empty_directory "app/assets/javascripts/#{dir}"
           create_file "app/assets/javascripts/#{dir}/.gitkeep" unless options[:skip_git]
         end
-        empty_directory "app/assets/templates"
+        empty_directory "app/assets/javascripts/templates"
         create_file "app/assets/templates/.gitkeep" unless options[:skip_git]
       end
 
@@ -65,8 +35,14 @@ initialize();"
         template "model.coffee", "app/assets/javascripts/model.js.coffee"
         template "view.coffee", "app/assets/javascripts/view.js.coffee"
         template "root.coffee", "app/assets/javascripts/views/root.js.coffee"
-        template "root.hbs", "app/assets/templates/root.hbs"
+        template "root.hbs", "app/assets/javascripts/templates/root.hbs"
         template "namespace.coffee", "app/assets/javascripts/#{application_name.underscore}.js.coffee"
+        template "init.js", "app/assets/javascripts/init.js"
+      end
+
+      def init_thorax
+        append_file "app/assets/javascripts/application.js", File.open("app/assets/javascripts/init.js", "rb").read
+        File.delete("app/assets/javascripts/init.js")
       end
     end
   end
