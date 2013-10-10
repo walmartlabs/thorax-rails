@@ -11,7 +11,7 @@ module GeneratorsTestHelper
   end
 
   def template_path
-    "app/assets/templates"
+    "app/assets/javascripts/templates"
   end
 
 end

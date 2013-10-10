@@ -20,23 +20,19 @@ class InstallGeneratorTest < Rails::Generators::TestCase
   test "Assert thorax directory structure is created" do
     run_generator
 
-    %W{routers models views collections}.each do |dir|
+    %W{routers models views collections templates}.each do |dir|
       assert_directory "#{thorax_path}/#{dir}"
       assert_file "#{thorax_path}/#{dir}/.gitkeep"
     end
-      assert_directory "#{template_path}"
-      assert_file "#{template_path}/.gitkeep"
   end
 
   test "Assert no gitkeep files are created when skipping git" do
     run_generator [destination_root, "--skip-git"]
 
-    %W{routers models views collections}.each do |dir|
+    %W{routers models views collections templates}.each do |dir|
       assert_directory "#{thorax_path}/#{dir}"
       assert_no_file "#{thorax_path}/#{dir}/.gitkeep"
     end
-    assert_directory "#{template_path}"
-    assert_no_file "#{template_path}/.gitkeep"
   end
 
   test "Assert application.js require underscore, backbone thorax etc." do
@@ -53,7 +49,7 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     run_generator
 
     assert_file "app/assets/javascripts/application.js" do |application|
-      %W{ ../templates ./models ./collections ./views ./routers .}.each do |require_tree|
+      %W{ ./templates ./models ./collections ./views ./routers .}.each do |require_tree|
         assert_match /#{require_tree}/, application
       end
     end

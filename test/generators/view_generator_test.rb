@@ -10,7 +10,7 @@ class ViewGeneratorTest < Rails::Generators::TestCase
     run_generator ["Posts", "index", "edit"]
 
     %W{index edit}.each do |action|
-      assert_file "#{thorax_path}/views/posts/#{action}_view.js.coffee"
+      assert_file "#{thorax_path}/views/posts/#{action}.js.coffee"
       assert_file "#{template_path}/posts/#{action}.hbs"
     end
   end
@@ -19,7 +19,7 @@ class ViewGeneratorTest < Rails::Generators::TestCase
     run_generator ["BlogPosts", "index", "edit"]
 
     %W{index edit}.each do |action|
-      assert_file "#{thorax_path}/views/blog_posts/#{action}_view.js.coffee"
+      assert_file "#{thorax_path}/views/blog_posts/#{action}.js.coffee"
       assert_file "#{template_path}/blog_posts/#{action}.hbs"
     end
   end

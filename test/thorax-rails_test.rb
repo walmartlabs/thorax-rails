@@ -5,19 +5,19 @@ class ThoraxRailsTest < ActiveSupport::TestCase
     @app = Dummy::Application
   end
 
-  # test "backbone.js is found as an asset" do
-  #   assert_not_nil @app.assets["backbone"]
-  # end
+  test "backbone.js is found as an asset" do
+    assert_not_nil @app.assets["backbone"]
+  end
 
-  # test "handlebars.js is found as an asset" do
-  #   assert_not_nil @app.assets["handlebars"]
-  # end
+  test "handlebars.js is found as an asset" do
+    assert_not_nil @app.assets["handlebars"]
+  end
 
-  # test "thorax.js is found as an asset" do
-  #   assert_not_nil @app.assets["thorax"]
-  # end
+  test "thorax.js is found as an asset" do
+    assert_not_nil @app.assets["thorax"]
+  end
 
-  # test "underscore.js is found as an asset" do
-  #   assert_not_nil @app.assets["underscore"]
-  # end
+  test "underscore.js is found as an asset" do
+    assert_not_nil @app.assets["underscore"]
+  end
 end

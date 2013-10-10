@@ -13,7 +13,6 @@ class ModelGeneratorTest < Rails::Generators::TestCase
     assert_file "#{thorax_path}/models/post.js.coffee" do |model|
       model_class = Regexp.escape("class Dummy.PostModel extends Dummy.Model")
       assert_match /name: 'post'/, model
-      assert_match /urlRoot: '\/posts'/, model
       assert_match /defaults:/, model
       assert_match /title: null/, model
       assert_match /content: null/, model
@@ -22,7 +21,8 @@ class ModelGeneratorTest < Rails::Generators::TestCase
     assert_file "#{thorax_path}/collections/post.js.coffee" do |model|
       collection_class = Regexp.escape('class Dummy.PostsCollection extends Dummy.Collection')
       assert_match /name: 'posts'/, model
-      assert_match /model: 'Dummy.PostModel'/, model
+      assert_match /model: Dummy.PostModel/, model
+      assert_match /url: '\/posts'/, model
     end
   end
 
@@ -32,7 +32,6 @@ class ModelGeneratorTest < Rails::Generators::TestCase
     assert_file "#{thorax_path}/models/blog_post.js.coffee" do |model|
       model_class = Regexp.escape("class Dummy.BlogPostModel extends Dummy.Model")
       assert_match /name: 'blog_post'/, model
-      assert_match /urlRoot: '\/blog_posts'/, model
       assert_match /defaults:/, model
       assert_match /title: null/, model
       assert_match /content: null/, model
@@ -41,7 +40,8 @@ class ModelGeneratorTest < Rails::Generators::TestCase
     assert_file "#{thorax_path}/collections/blog_post.js.coffee" do |model|
       collection_class = Regexp.escape('class Dummy.BlogPostsCollection extends Dummy.Collection')
       assert_match /name: 'blog_posts'/, model
-      assert_match /model: 'Dummy.BlogPostModel'/, model
+      assert_match /model: Dummy.BlogPostModel/, model
+      assert_match /url: '\/blog_posts'/, model
     end
   end
 end
