@@ -2,7 +2,7 @@
 # project in your rails apps through git.
 Gem::Specification.new do |s|
   s.name = "thorax-rails"
-  s.version = "0.0.1.45"
+  s.version = "0.1.0"
   s.authors = ["Lauren Eastridge", "Formidable Labs", "Walmart Labs"]
   s.email = ["lauren.eastridge@formidablelabs.com"]
   s.homepage = "http://github.com/walmartlabs/thorax-gem"
