@@ -15,9 +15,8 @@ module Thorax
 
       def inject_thorax
         inject_into_file "app/assets/javascripts/application.js", :before => "//= require_tree" do
-          "//= require underscore\n//= require backbone\n//= require handlebars.runtime\n//= require thorax\n//= require root\n//= require view\n//= require collection-view\n//= require layout-view\n//= require model\n//= require collection\n//= require_tree ./templates\n//= require_tree ./models\n//= require_tree ./collections\n//= require_tree ./views\n//= require_tree ./routers\n"
+          "//= require underscore\n//= require backbone\n//= require handlebars.runtime\n//= require thorax\n//= require #{application_name.underscore}\n//= require view\n//= require collection-view\n//= require layout-view\n//= require model\n//= require collection\n//= require_tree ./templates\n//= require_tree ./models\n//= require_tree ./collections\n//= require_tree ./views\n//= require_tree ./routers\n//= require ./views/root\n"
         end
-        append_file "app/assets/javascripts/application.js", File.open("#{source_paths.first}/init.js", "rb").read
       end
 
       def create_dir_layout
@@ -36,6 +35,12 @@ module Thorax
         template "root.coffee", "app/assets/javascripts/views/root.js.coffee"
         template "root.hbs", "app/assets/javascripts/templates/root.hbs"
         template "namespace.coffee", "app/assets/javascripts/#{application_name.underscore}.js.coffee"
+      end
+
+      def initialize_thorax
+        template "init.js", "#{destination_root}/app/assets/javascripts/#{application_name.underscore}_initializer.js.coffee"
+        append_file "app/assets/javascripts/application.js", File.open("#{destination_root}/app/assets/javascripts/#{application_name.underscore}_initializer.js.coffee", "rb").read
+        File.delete("#{destination_root}/app/assets/javascripts/#{application_name.underscore}_initializer.js.coffee")
       end
 
     end

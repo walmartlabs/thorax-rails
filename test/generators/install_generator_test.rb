@@ -1,8 +1,6 @@
 require 'test_helper'
 require 'generators/generators_test_helper'
 require "generators/thorax/install/install_generator"
-require 'minitest/unit'
-require 'mocha'
 
 class InstallGeneratorTest < Rails::Generators::TestCase
   include GeneratorsTestHelper
@@ -65,6 +63,8 @@ class InstallGeneratorTest < Rails::Generators::TestCase
     assert_file "#{thorax_path}/view.js.coffee"
     assert_file "#{thorax_path}/views/root.js.coffee"
     assert_file "#{template_path}/root.hbs"
+    assert_file "app/assets/javascripts/dummy.js.coffee"
+    assert_no_file "#{thorax_path}/dummy_initializer.js.coffee"
   end
 
 
