@@ -2,19 +2,19 @@
 # project in your rails apps through git.
 Gem::Specification.new do |s|
   s.name = "thorax-rails"
-  s.version = "0.1.0"
+  s.version = "0.1.6"
   s.authors = ["Lauren Eastridge", "Formidable Labs", "Walmart Labs"]
   s.email = ["lauren.eastridge@formidablelabs.com"]
   s.homepage = "http://github.com/walmartlabs/thorax-gem"
 
   s.summary = "Use thorax.js with rails"
   s.description = "Add Thorax to the Rails asset pipeline.  Generators take care of boilerplate code so you don't have to"
-  s.files = Dir["lib/**/*"] + Dir["vendor/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["lib/**/*"] + Dir["vendor/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency('railties', '>= 3.1.0')
   s.add_dependency('coffee-script', '~> 2.2.0')
   s.add_dependency('jquery-rails')
-  s.add_dependency('handlebars_assets')
+  s.add_dependency('handlebars_assets', '0.14.1')
 
   s.add_development_dependency('rails', '~> 3.2.0')
   s.add_development_dependency('sqlite3')
