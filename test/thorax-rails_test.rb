@@ -9,8 +9,8 @@ class ThoraxRailsTest < ActiveSupport::TestCase
     assert_not_nil @app.assets["backbone"]
   end
 
-  test "handlebars.js is found as an asset" do
-    assert_not_nil @app.assets["handlebars"]
+  test "handlebars.runtime.js is found as an asset" do
+    assert_not_nil @app.assets["handlebars.runtime"]
   end
 
   test "thorax.js is found as an asset" do
